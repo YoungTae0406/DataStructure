@@ -19,8 +19,11 @@ public class MyLinkedStack {
 		}	
 		
 	}
-	public void push(Object input) {//top에 삽입
-		top = new Node(input, top);
+	public void push(Object input) {//top 앞에서 삽입
+		Node temp = new Node(input);
+		temp.next = top;
+		top = temp;
+		//top = new Node(input, top);
 		++size;
 	}
 	public int size() {
@@ -48,7 +51,10 @@ public class MyLinkedStack {
 		private Object data;
 		private Node next;
 		
-	
+		public Node(Object data) {
+			this.data = data;
+			
+		}
 		public Node(Object data, Node next) {
 			this.data = data;
 			this.next = next;
